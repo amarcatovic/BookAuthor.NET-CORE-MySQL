@@ -11,5 +11,6 @@ namespace BookAuthor_MySQL.Data.Repos.Interfaces
         Task<Author> GetAuthorById(int id);
         Task<IEnumerable<Author>> GetAuthors();
         Task CreateAuthor(Author author);
+        Task<bool> Done();
     }
 }
