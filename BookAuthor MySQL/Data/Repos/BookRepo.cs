@@ -16,10 +16,14 @@ namespace BookAuthor_MySQL.Data.Repos
         {
             _context = context;
         }
-        public async Task CreateBook(Book book)
+        public async Task CreateBook(Book book, IEnumerable<int> authorIds)
         {
             await _context.Books.AddAsync(book);
             await _context.SaveChangesAsync();
+            foreach(var author in authorIds)
+            {
+                _context.AuthorBook.Add(new AuthorBook() { AuthorId = author, BookId = book.Id });
+            }
         }
 
         public async Task<Book> GetBookById(int id)

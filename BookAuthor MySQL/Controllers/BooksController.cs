@@ -52,7 +52,7 @@ namespace BookAuthor_MySQL.Controllers
         public async Task<IActionResult> CreateBook(BookCreateDto bookCreateDto)
         {
             var book = _mapper.Map<Book>(bookCreateDto);
-            await _repo.CreateBook(book);
+            await _repo.CreateBook(book, bookCreateDto.AuthorIds);
 
             if(await _repo.Done())
             {
