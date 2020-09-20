@@ -49,14 +49,14 @@ namespace BookAuthor_MySQL.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateBook(AuthorCreateDto authorCreateDto)
+        public async Task<IActionResult> CreateAuthor(AuthorCreateDto authorCreateDto)
         {
             var author = _mapper.Map<Author>(authorCreateDto);
             await _repo.CreateAuthor(author);
 
             if (await _repo.Done())
             {
-                var authorReadDto = _mapper.Map<BookReadDto>(author);
+                var authorReadDto = _mapper.Map<AuthorReadDto>(author);
                 return CreatedAtRoute(nameof(GetAuthorById), new { id = authorReadDto.Id }, authorReadDto);
             }
 
