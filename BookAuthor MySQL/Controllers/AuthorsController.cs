@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BookAuthor_MySQL.Controllers
 {
-    [Route("api/[authors]")]
+    [Route("api/authors")]
     [ApiController]
     public class AuthorsController : ControllerBase
     {
