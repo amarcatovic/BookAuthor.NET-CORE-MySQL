@@ -7,6 +7,6 @@ namespace BookAuthor_MySQL.Data.Dtos
 {
     public class BookCreateDto : BookPatchDto
     {
-
+        public IEnumerable<int> AuthorIds { get; set; }
     }
 }
