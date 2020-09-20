@@ -11,6 +11,6 @@ namespace BookAuthor_MySQL.Data.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime DOB { get; set; }
-        public AuthorBook AuthorBooks { get; set; }
+        public ICollection<AuthorBook> AuthorBooks { get; set; }
     }
 }
