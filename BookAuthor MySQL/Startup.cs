@@ -2,7 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using BookAuthor_MySQL.Data;
+using BookAuthor_MySQL.Data.Repos;
+using BookAuthor_MySQL.Data.Repos.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -30,6 +33,11 @@ namespace BookAuthor_MySQL
 
             services.AddDbContext<DataContext>(opt => 
                 opt.UseMySql(Configuration.GetConnectionString("DeveloperConnection")));
+
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            services.AddScoped<IBookRepo, BookRepo>();
+            services.AddScoped<IAuthorRepo, AuthorRepo>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
