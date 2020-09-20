@@ -19,6 +19,7 @@ namespace BookAuthor_MySQL.Data.Mapping_Profiles
 
             CreateMap<Book, BookPatchDto>().ReverseMap();
             CreateMap<BookCreateDto, Book>();
+            CreateMap<Book, BookBasicReadDto>();
         }
     }
 }
