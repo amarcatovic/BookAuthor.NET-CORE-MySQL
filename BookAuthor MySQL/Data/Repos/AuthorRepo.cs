@@ -19,7 +19,11 @@ namespace BookAuthor_MySQL.Data.Repos
         public async Task CreateAuthor(Author author)
         {
             await _context.Authors.AddAsync(author);
-            await _context.SaveChangesAsync();
+        }
+
+        public async Task<bool> Done()
+        {
+            return (await _context.SaveChangesAsync()) >= 0;
         }
 
         public async Task<Author> GetAuthorById(int id)

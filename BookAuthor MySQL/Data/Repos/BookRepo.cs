@@ -41,5 +41,10 @@ namespace BookAuthor_MySQL.Data.Repos
 
             return booksFromDb;
         }
+
+        public async Task<bool> Done()
+        {
+            return (await _context.SaveChangesAsync()) >= 0;
+        }
     }
 }
