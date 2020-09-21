@@ -30,6 +30,7 @@ namespace BookAuthor_MySQL
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
             services.AddControllers()
                 .AddNewtonsoftJson(o =>
             {
@@ -45,7 +46,6 @@ namespace BookAuthor_MySQL
             services.AddScoped<IAuthorRepo, AuthorRepo>();
 
             services.AddSwaggerGen();
-            services.AddCors();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -59,7 +59,7 @@ namespace BookAuthor_MySQL
                 .AllowAnyOrigin()
                 .AllowAnyMethod()
                 .AllowAnyHeader()
-                .AllowCredentials());
+                );
 
             app.UseSwagger();
             app.UseSwaggerUI(c =>
