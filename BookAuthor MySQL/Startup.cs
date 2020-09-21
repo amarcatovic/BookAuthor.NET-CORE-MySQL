@@ -43,6 +43,8 @@ namespace BookAuthor_MySQL
 
             services.AddScoped<IBookRepo, BookRepo>();
             services.AddScoped<IAuthorRepo, AuthorRepo>();
+
+            services.AddSwaggerGen();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -51,6 +53,12 @@ namespace BookAuthor_MySQL
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
 
             app.UseHttpsRedirection();
 
