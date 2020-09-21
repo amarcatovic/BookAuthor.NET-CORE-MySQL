@@ -45,6 +45,7 @@ namespace BookAuthor_MySQL
             services.AddScoped<IAuthorRepo, AuthorRepo>();
 
             services.AddSwaggerGen();
+            services.AddCors();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -53,6 +54,12 @@ namespace BookAuthor_MySQL
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors(builder => builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowCredentials());
 
             app.UseSwagger();
             app.UseSwaggerUI(c =>
