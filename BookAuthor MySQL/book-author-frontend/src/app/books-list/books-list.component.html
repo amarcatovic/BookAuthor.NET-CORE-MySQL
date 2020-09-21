@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4"><img src="../../assets/book.svg" alt="book icon" width="50px"> Search for books</h1>
+        <p class="lead">Your search is almost over! Just find the book that you are looking for, or use our search option so we can find it for you in no time.</p>
+        <hr>
+        <h5 class="display-7">Cannot find your book?</h5>
+        <h6 class="display-8">Well then add it</h6>
+        <br>
+        <button class="btn btn-dark" [routerLink]="['/books', 'add']">Add Book</button>
+        <div *ngIf="bookClicked">
+            <hr class="my-4">
+            <h3>Selected: {{ selectedBook.name }}</h3>
+        </div>
+    </div>
+    <form [formGroup]="form">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <label for="search">Search books</label>
+                    <input type="text" name="search" id="search" formControlName="search" class="form-control" [(ngModel)]="bookSearchName">
+                </div>
+            </div>
+            <app-book-item (getBookDetails)="showBookDetails($event)" *ngFor="let book of books | search:bookSearchName:'true':'name'" [book]="book"></app-book-item>
+        </div>
+    </form>
+</div>

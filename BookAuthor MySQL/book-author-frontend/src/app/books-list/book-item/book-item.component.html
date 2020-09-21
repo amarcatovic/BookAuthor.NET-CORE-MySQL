@@ -1,0 +1,21 @@
+<div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" (click)="toggleShow()" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          {{ book.name }}
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse" 
+        [ngClass]="{'show': show}"
+        aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+        <h6>Released: {{ getBookPublishedDate() }}</h6>
+        <h6>Description:</h6>
+        <i>{{ book.description }}</i>
+        <h6 *ngIf="book.authors.length > 1">Authors: <strong>{{ getBookAuthorsToString() }}</strong></h6>
+        <h6 *ngIf="book.authors.length === 1">Author: <strong>{{ book.authors[0].firstName }} {{ book.authors[0].lastName }}</strong></h6>
+      </div>
+    </div>
+</div>

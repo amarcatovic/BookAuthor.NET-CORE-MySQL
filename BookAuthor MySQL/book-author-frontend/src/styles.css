@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import '~ngx-toastr/toastr';
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: ranchers;
+    src: url('./assets/Ranchers-Regular.ttf') format("opentype");
+  }

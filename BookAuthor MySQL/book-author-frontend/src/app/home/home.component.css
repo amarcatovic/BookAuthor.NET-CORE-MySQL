@@ -1,0 +1,19 @@
+.wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background: url('../../assets/library.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+}
+
+.wrapper-center{
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    font-family: 'ranchers', 'arial', sans-serif;
+}
